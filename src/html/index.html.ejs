@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <title>VueJS, Typescript et Webpack</title>
+
+  <% for (var filePath in htmlWebpackPlugin.files.js) { %>
+    <script async src="<%= htmlWebpackPlugin.files.js[filePath] %>"></script>
+    <% } %>
+
+      <style>
+        /*WEBPACK_CSS*/
+      </style>
+</head>
+
+<body>
+  <h1>Coucou <a>lien</a></h1>
+  <div id="app"></div>
+</body>
+
+</html>
