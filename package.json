@@ -1,12 +1,20 @@
 {
-  "name": "test",
+  "name": "veronique",
+  "author": {
+    "name": "Digivore",
+    "email": "hello@digivore.fr"
+  },
+  "description": "Start developing Vue.js Typescript frontend projects in a glimpse",
   "license": "MIT",
   "scripts": {
-    "dev": "node server.js"
+    "clean": "rm -rf dist",
+    "dev": "yarn run clean && node server.js",
+    "build": "yarn run clean && yarn run webpack --config config/webpack.config-build.js"
   },
   "devDependencies": {
     "@babel/node": "^7.15.4",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "style-loader": "^3.3.1"
   },
   "dependencies": {
     "@babel/core": "^7.15.5",
@@ -36,13 +44,12 @@
     "fs-extra": "^10.0.0",
     "html-webpack-plugin": "^5.3.2",
     "jest": "^27.2.4",
-    "mini-css-extract-plugin": "^2.3.0",
+    "mini-css-extract-plugin": "^2.5.2",
     "postcss": "^8.3.8",
     "postcss-loader": "^6.1.1",
     "postcss-sort-media-queries": "^4.1.0",
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
-    "style-loader": "^3.3.0",
     "terser-webpack-plugin": "^5.2.4",
     "ts-jest": "^27.0.5",
     "ts-loader": "^9.2.6",

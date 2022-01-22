@@ -1,12 +1,11 @@
-/** https://blogs.infinitesquare.com/posts/web/debuter-un-projet-avec-vuejs-typescript-et-webpack */
-
-
-// Webpack HMR interface.
 interface ExtendedNodeModule extends NodeModule {
   hot: { accept: () => void };
 }
 
-console.log('COUCOU MEC :) !');
+// Requiring scss will include it in the Webpack's bundle process.
+require('./../styles/index.scss')
+
+console.log('I am a successfully bundled script !');
 
 // Enables Hot Module Rendering.
 if ((module as ExtendedNodeModule).hot) {
