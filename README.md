@@ -9,8 +9,8 @@
 - **Start coding now** : Webpack is already set to compile typescript, transpile ES6+, and bundle scripts and scss styles.
 - **Work efficiently** : Local server with HMR embedded and Vue.js out of the box.
 
-## Installation
-- you'll need [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) installed on your system. That's all.
+## Install
+- **you'll need [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) installed on your system.** That's all.
 - clone the repo
 - ```cd``` to your repo then ```cp .env.example .env```
 - update the .env variables depending on your needs
