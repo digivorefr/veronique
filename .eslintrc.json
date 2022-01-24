@@ -63,5 +63,29 @@
             "error",
             "always"
         ]
+    },
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "extensions": [
+                    ".js",
+                    ".ts",
+                    ".jsx",
+                    ".tsx",
+                    ".vue",
+                    ".json"
+                ],
+                "paths": [
+                    "src"
+                ]
+            },
+            "import/extensions": [
+                ".js",
+                ".ts",
+                ".jsx",
+                ".tsx",
+                ".vue"
+            ]
+        }
     }
 }
