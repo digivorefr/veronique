@@ -249,7 +249,7 @@ coverage
 report.html
 
 # Builds
-# dist
+dist
 # **/public/assets
 
 # Misc

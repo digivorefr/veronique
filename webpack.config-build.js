@@ -6,11 +6,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const mode = process.env.ENV;
 const port = process.env.PORT;
-const host = process.env.HOST_IP;
 const name = process.env.PROJECT_NAME;
 
-if([port, host, name].includes(undefined)){
-  throw new Error('Environment is not set correctly. You must provide ENV, PORT, HOST and PROJECT_NAME environment variables.');
+if([port, name].includes(undefined)){
+  throw new Error('Environment is not set correctly. You must provide ENV, PORT, and PROJECT_NAME environment variables.');
 }
 
 const appConfig = {
@@ -54,7 +53,7 @@ const appConfig = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {},            
+            options: {},
           },
           // `css-loader` resolves paths in CSS and adds assets as dependencies.
           {

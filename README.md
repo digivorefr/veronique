@@ -24,3 +24,6 @@
 ## Disclaimer
 **Use ONLY for development purposes**<br>
 Veronique is not designed to provide a production server.
+
+## Credits
+If you are looking for a professional Typescript development boilerplate, you could consider using [openizr/project-boilerplate](https://github.com/openizr/project-boilerplate) with [openizr/typescript-dev-kit](https://github.com/openizr/typescript-dev-kit). Many thanks to those two projects and its contributors. Veronique is a simplified version of it.

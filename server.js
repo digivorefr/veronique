@@ -1,17 +1,17 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const fs = require('fs-extra');
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 const mode = process.env.ENV;
 const port = process.env.PORT;
-const host = process.env.HOST_IP;
-const name = process.env.PROJECT_NAME;
 
-const config = (mode === 'development') 
-? require('./webpack.config-dev.js') 
+const config = (mode === 'development')
+? require('./webpack.config-dev.js')
 : require('./webpack.config-build.js');
 
 const server = express();
@@ -27,7 +27,7 @@ fs.remove(config.output.path)
       publicPath: '/assets',
     });
     devMiddleware.waitUntilValid(() => {
-      console.log(`\n\x1B[0m\x1B[32m\x1B[1m ✔️ Check your browser : http://${host}:${port} \x1B[0m\n`);
+      console.log(`\n\x1B[0m\x1B[32m\x1B[1m ✔️ Check your browser : http://localhost:${port} \x1B[0m\n`);
     });
     server.use(devMiddleware);
 
@@ -45,11 +45,11 @@ fs.remove(config.output.path)
         console.error(stats.toString(), '\nCompilation failed.')
       }
       console.log(stats.toString(), '\nSuccesfully compiled.');
-    
+
       compiler.close((closeErr) => {
       });
     });
-    
+
   }
 
   // Serves all static assets.
@@ -70,7 +70,7 @@ fs.remove(config.output.path)
   });
 
   server.listen(port, () => {
-    console.log(`Server is up, waiting for compilation`);
+    console.log(`Server is up, waiting for compilation. Port: ${port}`);
   });
 })
 .catch((error) => {
