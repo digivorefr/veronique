@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import router from 'scripts/router';
-import Layout from 'scripts/Layout.vue';
+import Layout from 'scripts/pages/Layout.vue';
 
 // Requiring assets here will include it in the Webpack's bundle process.
 require('../styles/index.scss');

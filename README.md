@@ -1,6 +1,6 @@
-# Veronique
+# 🚀 Veronique 🇫🇷
 
-### **Start Vue.js Typescript frontend projects in a glimpse**
+### **An "almost in space" VueJS Typescript Development Boilerplate**
 ![Veronique rocket](https://upload.wikimedia.org/wikipedia/commons/e/e5/Fus%C3%A9e_VERONIQUE_%288727147868%29.jpg)
 
 
