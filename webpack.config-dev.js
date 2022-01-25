@@ -1,22 +1,24 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+/* eslint-enable @typescript-eslint/no-var-requires */
 
 const mode = process.env.ENV;
 const port = process.env.PORT;
 const name = process.env.PROJECT_NAME;
 
-if([port, name].includes(undefined)){
+if ([port, name].includes(undefined)) {
   throw new Error('Environment is not set correctly. You must provide ENV, PORT, and PROJECT_NAME environment variables.');
 }
 
 const appConfig = {
-  mode: mode,
+  mode,
   context: __dirname,
   entry: {
-    [name]:[
+    [name]: [
       'webpack-hot-middleware/client',
       './src/scripts/app.ts',
     ],
@@ -24,7 +26,7 @@ const appConfig = {
   target: 'web',
   output: {
     path: path.resolve(__dirname, './dist/assets'),
-    publicPath: '/assets',
+    publicPath: '/assets/',
     filename: '[name].bundle.js',
     clean: true,
   },
@@ -36,17 +38,17 @@ const appConfig = {
         exclude: /node_modules/,
         options: {
           appendTsSuffixTo: [/\.vue$/],
-        }
+        },
       },
       {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'vue-style-loader!css-loader!sass-loader',
-            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
-          }
-        }
+            scss: 'vue-style-loader!css-loader!sass-loader',
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+          },
+        },
       },
       // Stylesheets.
       {
@@ -77,13 +79,17 @@ const appConfig = {
         ],
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpe?g|gif|pdf)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
-        }
-      }
-    ]
+          name: '[name].[ext]?[hash]',
+        },
+      },
+      {
+        test: /\.(svg)$/,
+        type: 'asset',
+      },
+    ],
   },
   resolve: {
     extensions: ['.ts', '.js', '.vue', '.json'],
@@ -114,12 +120,12 @@ const appConfig = {
     historyApiFallback: true,
     noInfo: true,
     hot: true,
-    port: port,
+    port,
   },
   performance: {
-    hints: false
+    hints: false,
   },
-  devtool: 'eval-source-map'
+  devtool: 'eval-source-map',
 };
 
 module.exports = appConfig;

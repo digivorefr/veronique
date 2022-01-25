@@ -2,17 +2,32 @@
 <html lang="en">
 
 <head>
-  <title>🚀 Veronique</title>
+  <base href="/" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <meta name="robots" content="index, follow" />
+
+  <title>🚀 Veronique 🇫🇷 an "almost in space" VueJS Typescript Development Boilerplate</title>
+  <meta name="description"
+    content="Dockerized development environment : VueJs, Typescript, Sass, Webpack, Hot Module Reloading" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="VueJS Typescript Development Boilerplate | Veronique" />
+  <!-- <meta property="og:url" content="" /> -->
+  <meta property="og:site_name"
+    content="🚀 Veronique 🇫🇷 an 'almost in space' VueJS Typescript Development Boilerplate" />
+  <meta property="og:description" content="" />
+
   <% for (var filePath in htmlWebpackPlugin.files.js) { %>
     <script async src="<%= htmlWebpackPlugin.files.js[filePath] %>"></script>
     <% } %>
-  <% for (var filePath in htmlWebpackPlugin.files.css) { %>
-    <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[filePath] %>" />
-    <% } %>
+      <% for (var filePath in htmlWebpackPlugin.files.css) { %>
+        <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[filePath] %>" />
+        <% } %>
 </head>
 
 <body>
-  <h1>Hello world</h1>
+  <div id="app"></div>
 </body>
 
 </html>
