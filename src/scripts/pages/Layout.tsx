@@ -1,9 +1,15 @@
 import * as React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from 'scripts/components/Header';
+import Footer from 'scripts/components/Footer';
 
-export default function Layout(): any {
-  React.useEffect(() => { console.log('ready'); }, []);
+export default function Layout(): JSX.Element {
   return (
-    <h1>React is there man, with router</h1>
+    <div>
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
   );
 }
 
