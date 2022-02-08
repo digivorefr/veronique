@@ -19,7 +19,7 @@ const appConfig = {
   context: __dirname,
   entry: {
     [name]: [
-      './src/scripts/app.ts',
+      './src/scripts/app.tsx',
     ],
   },
   target: 'web',
@@ -90,7 +90,7 @@ const appConfig = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
+    extensions: ['.json', '.js', '.ts', '.jsx', '.tsx', '.vue', '*'],
     alias: {
       vue: 'vue/dist/vue.runtime.js',
     },
