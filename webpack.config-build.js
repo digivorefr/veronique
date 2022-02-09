@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const webpack = require('webpack');
-const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 /* eslint-enable @typescript-eslint/no-var-requires */
@@ -19,7 +18,7 @@ const appConfig = {
   context: __dirname,
   entry: {
     [name]: [
-      './src/scripts/app.ts',
+      './src/scripts/app.js',
     ],
   },
   target: 'web',
@@ -32,20 +31,13 @@ const appConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
-        },
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
           },
         },
       },
@@ -90,18 +82,13 @@ const appConfig = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
-    alias: {
-      vue: 'vue/dist/vue.runtime.js',
-    },
+    extensions: ['.js', '.json'],
     modules: ['src', 'node_modules'],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: `${name}.[fullhash].bundle.css`,
     }),
-    // Allows .vue files parsing.
-    new VueLoaderPlugin(),
     new HtmlWebpackPlugin({
       inject: false,
       environment: mode,

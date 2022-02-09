@@ -8,7 +8,14 @@ const initialize = () => {
   console.log('Initialized');
 };
 
-window.onload = initialize;
+// Ensures DOM is fully loaded before running app's main logic.
+// Loading hasn't finished yet...
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initialize);
+  // `DOMContentLoaded` has already fired...
+} else {
+  initialize();
+}
 
 // Enables Hot Module Rendering.
 if (module.hot) {
