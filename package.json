@@ -4,7 +4,7 @@
     "name": "Digivore",
     "email": "hello@digivore.fr"
   },
-  "description": "Start developing Vue.js Typescript frontend projects in a glimpse",
+  "description": "Start developing Vanilla JS frontend projects in a glimpse",
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf dist",
@@ -12,13 +12,14 @@
     "build": "yarn run clean && yarn run webpack --config webpack.config-build.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
     "@types/webpack-env": "^1.16.3",
+    "babel-loader": "^8.2.3",
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "@types/source-map-support": "^0.5.4",
-    "@typescript-eslint/eslint-plugin": "^4.32.0",
-    "@typescript-eslint/parser": "^4.32.0",
     "@vue/compiler-sfc": "^3.2.19",
     "autoprefixer": "^10.3.6",
     "css-loader": "^6.3.0",
@@ -27,9 +28,6 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.26.1",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-vue": "^7.18.0",
     "eslint-webpack-plugin": "^3.0.1",
     "express": "^4.17.1",
     "file-loader": "^6.2.0",
@@ -42,15 +40,7 @@
     "sass": "^1.42.1",
     "sass-loader": "^12.1.0",
     "style-loader": "^3.3.1",
-    "terser-webpack-plugin": "^5.2.4",
-    "ts-loader": "^9.2.6",
-    "typedoc": "^0.22.4",
-    "typescript": "^4.4.3",
-    "vue": "^2.6.14",
-    "vue-loader": "^15.9.8",
-    "vue-router": "^3.5.3",
-    "vue-template-compiler": "^2.6.14",
-    "webpack": "^5.66.0",
+    "webpack": "^5.68.0",
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^4.9.1",
     "webpack-dev-middleware": "^5.2.1",

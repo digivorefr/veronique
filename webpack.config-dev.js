@@ -20,7 +20,7 @@ const appConfig = {
   entry: {
     [name]: [
       'webpack-hot-middleware/client',
-      './src/scripts/app.ts',
+      './src/scripts/app.js',
     ],
   },
   target: 'web',
@@ -33,20 +33,13 @@ const appConfig = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
-        options: {
-          appendTsSuffixTo: [/\.vue$/],
-        },
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: {
-          loaders: {
-            scss: 'vue-style-loader!css-loader!sass-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-transform-runtime']
           },
         },
       },
@@ -92,18 +85,13 @@ const appConfig = {
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js', '.vue', '.json'],
-    alias: {
-      vue: 'vue/dist/vue.runtime.js',
-    },
+    extensions: ['.js', '.json'],
     modules: ['src', 'node_modules'],
   },
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'styles.bundle.css',
     }),
-    // Allows .vue files parsing.
-    new VueLoaderPlugin(),
     // Enables HMR with webpack-dev-middleware.
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
